@@ -180,3 +180,5 @@ fabric.properties
 # application specific
 weights/**/*.hdf5
 models/**/*.h5
+vae_output/**/*.h5
+
