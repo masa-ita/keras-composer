@@ -1,0 +1,11 @@
+model = Sequential()
+model.add(LSTM(512, input_shape=(sequence_length, n_vocab), return_sequences=True))
+model.add(Dropout(0.3))
+model.add(CuDNNLSTM(512, return_sequences=True))
+model.add(Dropout(0.3))
+model.add(CuDNNLSTM(512))
+model.add(Dense(256))
+model.add(Dropout(0.3))
+model.add(Dense(n_vocab, activation='softmax'))
+
+model.compile(loss='categorical_crossentropy', optimizer='rmsprop', metrics=['acc'])
